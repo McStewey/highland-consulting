@@ -6,7 +6,7 @@ if (menuButton && nav) {
     'index.html': 'Capabilities',
     'about.html': 'Company',
     'insights.html': 'Intelligence',
-    'contact.html': 'Engage Highland'
+    'contact.html': 'Priority Brief'
   };
   nav.querySelectorAll('a').forEach((link) => {
     const href = link.getAttribute('href');
@@ -32,6 +32,12 @@ if (menuButton && nav) {
     if (window.innerWidth > 760) closeMenu();
   });
 }
+
+const favicon = document.createElement('link');
+favicon.rel = 'icon';
+favicon.type = 'image/svg+xml';
+favicon.href = 'assets/highland-monogram.svg';
+document.head.appendChild(favicon);
 
 const revealItems = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
@@ -70,8 +76,9 @@ if (form) {
     const data = new FormData(form);
     const name = data.get('name') || 'Website visitor';
     const organization = data.get('organization') || 'Not provided';
+    const priority = data.get('priority') || 'Not selected';
     const subject = `Highland Consulting inquiry - ${organization === 'Not provided' ? name : organization}`;
-    const body = `Name: ${name}\nEmail: ${data.get('email')}\nOrganization: ${organization}\n\nWhat we are working through:\n${data.get('challenge')}`;
+    const body = `OPERATING PRIORITY BRIEF REQUEST\n\nName: ${name}\nEmail: ${data.get('email')}\nOrganization: ${organization}\nPriority: ${priority}\n\nWhat is changing, stuck, or ready to be built:\n${data.get('challenge')}`;
     window.location.href = `mailto:wade.stewart@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
