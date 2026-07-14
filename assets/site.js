@@ -3,10 +3,10 @@ const nav = document.querySelector('.site-nav');
 
 if (menuButton && nav) {
   const navigationLabels = {
-    'index.html': 'Capabilities',
+    'index.html': 'Home Page',
     'about.html': 'Company',
     'insights.html': 'Intelligence',
-    'contact.html': 'Priority Brief'
+    'contact.html': 'Request consultation'
   };
   nav.querySelectorAll('a').forEach((link) => {
     const href = link.getAttribute('href');
